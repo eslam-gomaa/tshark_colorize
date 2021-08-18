@@ -22,9 +22,9 @@ fi
 # STDIN=`cat /dev/stdin`
 STDIN=$(</dev/stdin)
 tmp_file="/tmp/test-stdin.txt"
+echo "$STDIN" > $tmp_file
 
 if [[ "$2" =~ [0-9]+ ]]; then
-    echo "$STDIN" > $tmp_file
     N=$2
     next_color=2
     N_lines=`wc -l $tmp_file | cut -d ' ' -f 1`
