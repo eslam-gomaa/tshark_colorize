@@ -1,0 +1,66 @@
+#!/bin/bash
+usage() {
+   cat << EOF
+USAGE:
+$0                             --> (colorizes tshark output)
+$0 --lines  <number-of-lines>  --> (Seperates each N of lines with different color)
+EOF
+   exit 1
+}
+
+if [ $# -gt 0 ]; then
+    if [ "$1" != "--lines" ]; then
+        usage;
+    else
+        if ! [[ "$2" =~ [0-9]+ ]]; then
+            usage;
+    fi
+    fi
+fi
+
+# STDIN="${1:-/dev/stdin}" # cases error as it gets the STDIN from $1
+# STDIN=`cat /dev/stdin`
+STDIN=$(</dev/stdin)
+tmp_file="/tmp/test-stdin.txt"
+
+if [[ "$2" =~ [0-9]+ ]]; then
+    echo "$STDIN" > $tmp_file
+    N=$2
+    next_color=2
+    N_lines=`wc -l $tmp_file | cut -d ' ' -f 1`
+    count=0
+
+    for i in $(seq 1 $(($N_lines / $N)))
+    do
+        test=`tail -n $(($N_lines - $count)) $tmp_file | head -n $N`
+        GREEN="\\033[0;3"$next_color"m"
+        NC='\033[0m'
+        printf "${GREEN}$test${NC}\n"
+        echo ""
+        count=$(($count + $N))
+        if [ $next_color -eq 2 ]
+        then
+            next_color=4
+            elif [ $next_color -eq 4 ]
+                then
+                    next_color=2
+        fi
+    done
+    exit 0
+fi
+
+awk '
+function color(c,s) {
+        printf("\033[%dm%s\033[0m\n",30+c,s)
+}
+/Internet Protocol Version [4||6]/ {color(4,$0);next}
+/(OPTION|GET|HEAD).*HTTP/ {color(3,$0);next}
+/\[SYN, ACK] Seq/ {color(5,$0);next}
+/\[ACK] Seq/ {color(5,$0);next}
+/\[SYN] Seq/ {color(5,$0);next}
+/HTTP.*40.*/ {color(1,$0);next}
+/HTTP.*50.*/ {color(1,$0);next}
+/HTTP.*20.*/ {color(2,$0);next}
+{print}
+' < "$tmp_file"
+rm -f $tmp_file
