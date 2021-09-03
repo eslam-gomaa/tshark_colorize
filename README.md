@@ -1,5 +1,5 @@
 
-this is a tool that colorizes specific output in `tshark` command (currently status codes) which makes the output nicer for the eye
+this is a tool that colorizes specific output in `tshark` command (currently status codes) which makes the output nicer for the eye (Currently for educational purposes)
 
 # Usage
 
