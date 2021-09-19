@@ -9,6 +9,21 @@ Simply pipe the output to `colorize`
 
 **CAUTION:** for `tshark` commands, make sure you specify the number of packets limit with `-c N` or timeout with `-a duration:10`
 
+
+---
+
+## Installation
+
+```
+git clone https://github.com/eslam-gomaa/tshark_colorize.git
+
+mv tshark_colorize/colorize /usr/local/bin/
+chmod +x /usr/local/bin/colorize
+
+rm tshark_colorize/ -rf
+```
+
+
 ## Examples
 
 ```bash
