@@ -25,19 +25,30 @@ rm tshark_colorize/ -rf
 colorize -h
 ```
 
+---
 
-## Examples
+
+## Examples 1 
 
 ```bash
 tshark -i eth1 -n -f "tcp port 80" -Y "ip.host == 192.168.122.40" -c 15 -a duration:10 | colorize
 ```
 
+
+**Current color behaviour**
+
+* 🟠  `-->`  HTTP Request
+* 🟢  `-->`  `2x`, `3x` responses
+* 🔴  `-->`  `4x`, `5x` responses
+
 ![image](https://user-images.githubusercontent.com/33789516/129970637-065ec7ec-6a00-4731-aba1-52b399ea470f.png)
 
+---
+.
+
+## Examples 2  [ Seperate output lines with different colors ]
 
 
-
-💎 Seperate output lines with different colors
 
 ```bash
 # Seperate each 3 lines with different color
