@@ -21,6 +21,10 @@ chmod +x /usr/local/bin/colorize
 rm tshark_colorize/ -rf
 ```
 
+```bash
+colorize -h
+```
+
 
 ## Examples
 
