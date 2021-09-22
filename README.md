@@ -37,7 +37,7 @@ tshark -i eth1 -n -f "tcp port 80" -Y "ip.host == 192.168.122.40" -c 15 -a durat
 
 **Current color behaviour**
 
-* 🟠  `-->`  HTTP Request
+* 🟡  `-->`  HTTP Request
 * 🟢  `-->`  `2x`, `3x` responses
 * 🔴  `-->`  `4x`, `5x` responses
 
