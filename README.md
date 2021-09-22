@@ -3,9 +3,7 @@ this is a tool that colorizes specific output in `tshark` command (currently sta
 
 # Usage
 
-The `colorize` tool takes the output from STDIN
-
-Simply pipe the output to `colorize`
+The `colorize` tool takes the output from STDIN, So Simply pipe the output to `colorize`
 
 **CAUTION:** for `tshark` commands, make sure you specify the number of packets limit with `-c N` or timeout with `-a duration:10`
 
