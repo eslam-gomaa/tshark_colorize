@@ -60,7 +60,7 @@ tshark -i eth1 -n -f "tcp port 80" -Y "ip.host == 192.168.122.40" -c 15 -a durat
 
 ---
 
-### To run colorize with tshark without
+### To run colorize with tshark without limiting the number of packets
 
 ```bash
 vi shark.sh
