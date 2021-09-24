@@ -58,7 +58,24 @@ tshark -i eth1 -n -f "tcp port 80" -Y "ip.host == 192.168.122.40" -c 15 -a durat
 ![image](https://user-images.githubusercontent.com/33789516/129970784-50e00bcd-4690-410d-8b30-3ff45944168d.png)
 
 
+---
 
+### To run colorize with tshark without
 
+```bash
+vi shark.sh
+```
+```bash
+#!/bin/bash
+tmp=/tmp/out
+trap "cat $tmp | colorize" INT
+$@ > $tmp
+```
+
+```bash
+bash shark.sh toto.sh tshark -i eth1 -n -f "tcp"
+```
+
+After you click `CRL` + `C` data will printed with colors
 
 
