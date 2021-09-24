@@ -73,7 +73,7 @@ $@ > $tmp
 ```
 
 ```bash
-bash shark.sh toto.sh tshark -i eth1 -n -f "tcp"
+bash shark.sh tshark -i eth1 -n -f "tcp"
 ```
 
 After you click `CRL` + `C` data will printed with colors
