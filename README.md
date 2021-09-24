@@ -5,7 +5,7 @@ this is a tool that colorizes specific output in `tshark` command (currently sta
 
 The `colorize` tool takes the output from STDIN, So Simply pipe the output to `colorize`
 
-**CAUTION:** for `tshark` commands, make sure you specify the number of packets limit with `-c N` or timeout with `-a duration:10`
+**CAUTION:** for `tshark` commands, make sure you specify the number of packets limit with `-c N` or timeout with `-a duration:10`, If you don't want to limit the number of packets [use this tip](https://github.com/eslam-gomaa/tshark_colorize#to-run-colorize-with-tshark-without)
 
 
 ---
